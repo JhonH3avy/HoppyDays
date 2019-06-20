@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://spikes_top.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Environment/spikes_top.png" type="Texture" id=2]
+
+[node name="SpikesTop" type="Area2D"]
+collision_layer = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.462745, 0.0352941, 0.0352941, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -32.4665, -28.9927, -46.6826, 26.6173, 47.6463, 26.9579, 31.924, -28.9927 )
+[connection signal="body_entered" from="." to="." method="_on_spikes_top_body_entered"]

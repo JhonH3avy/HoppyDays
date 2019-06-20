@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Levels/GameState.gd" type="Script" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Environment/spikes_top.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Environment/JumpPad.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1620, 1320 )
+SPEED = 1500
+WORLD_LIMIT = 5000
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -720891, 1, 0, -720888, 0, 0, -720882, 0, 0, -720876, 1, 0, -655268, 1, 0, -589777, 1, 0, -393146, 1, 0, -393143, 1, 0, -327626, 1, 0, -262040, 1, 0, -65528, 0, 0, -65522, 0, 0, -65516, 1, 0, -65441, 1, 0, 23, 0, 0, 24, 0, 0, 67, 0, 0, 73, 0, 0, 79, 0, 0, 65592, 0, 0, 262144, 0, 0, 262150, 1, 0, 262159, 0, 0, 262182, 1, 0, 327732, 0, 0, 327774, 0, 0, 327780, 0, 0, 327786, 0, 0, 327792, 0, 0, 393239, 0, 0, 393245, 0, 0, 393291, 1, 0, 458815, 0, 0, 458821, 0, 0, 458835, 0, 0, 458841, 0, 0, 524329, 0, 0, 524335, 0, 0, 524411, 2, 0, 524417, 2, 0, 524423, 2, 0, 917546, 3, 0, 917648, 2, 0, 917654, 2, 0, 917660, 2, 0, 983171, 3, 0, 1507452, 2, 0, 1507458, 2, 0, 1507464, 2, 0, 1572917, 3, 0, 1638424, 2, 0, 1638430, 2, 0, 1966186, 2, 0, 1966192, 2, 0, 2293801, 3, 0, 2293854, 3, 0, 2883618, 2, 0, 2883624, 2, 0, 2883630, 2, 0, 2883636, 2, 0, 2883657, 3, 0, 2883673, 2, 0, 2883679, 2, 0, 3407888, 2, 0, 3407894, 2, 0, 3407900, 2, 0, 3473480, 3, 0, 3538987, 3, 0, 3997735, 2, 0, 3997741, 2, 0, 3997747, 2, 0, 3997753, 2, 0, 3997759, 2, 0, 3997765, 2, 0, 3997771, 2, 0 )
+
+[node name="Hazzards" type="Node" parent="."]
+
+[node name="spikes_top" parent="Hazzards" instance=ExtResource( 4 )]
+position = Vector2( 2240, 1580 )
+
+[node name="spikes_top2" parent="Hazzards" instance=ExtResource( 4 )]
+position = Vector2( 2740, 880 )
+
+[node name="spikes_top3" parent="Hazzards" instance=ExtResource( 4 )]
+position = Vector2( 1760, 360 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+
+[node name="JumpPads" type="Node" parent="."]
+
+[node name="JumpPad" parent="JumpPads" instance=ExtResource( 6 )]
+position = Vector2( 2510, 2780 )
