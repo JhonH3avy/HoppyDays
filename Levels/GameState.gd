@@ -42,4 +42,9 @@ func end_game():
 	var errors = get_tree().change_scene("res://Levels/GameOver.tscn")
 	if errors:
 		print(errors)
+		
+func win_game():
+	var errors = get_tree().change_scene("res://Levels/Victory.tscn")
+	if errors:
+		print(errors)
 	
